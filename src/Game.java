@@ -49,15 +49,15 @@ public class Game {
         }
 
 
-        System.out.println("Side Quest Başlıyor Kılıcınızı Çektiniz Ve Savaşa Hazırsınız\n");
-        System.out.println("Cakeking Geliyorrrr Canı " + sideQuestBossHealth + " HP !");
+        System.out.println("Side Quesr Has Began\n");
+        System.out.println("Here comes CakeKing " + sideQuestBossHealth + " HP !");
         Thread.sleep(2000);
         while (sideQuestBossHealth>=0 || playerHealth>=0){
-            System.out.println("CakeKing Saldırısını yapıyor");
+            System.out.println("CakeKing Attacking!!");
             Thread.sleep(1000);
             int critChanceB = random.nextInt(10);
             if (critChanceB<=sideQuestBossCritChance){
-                System.out.println("Cakeking Crit Hasar vurdu !!!!!!! " + (sideQuestCrit*sideQuestBossDamage)+ "DMG");
+                System.out.println("Cakeking Strike a Crit  !!!!!!! " + (sideQuestCrit*sideQuestBossDamage)+ "DMG");
                 Thread.sleep(2000);
                 if (playerArmorHealth<=0 || playerArmorCondition<=0){
                     playerHealth -= sideQuestCrit*sideQuestBossDamage;
@@ -65,11 +65,11 @@ public class Game {
                     playerArmorCondition -= 1;
                     playerArmorHealth -= sideQuestCrit*sideQuestBossDamage;
                 }
-                System.out.println(playerName +""+ playerHealth + ""+playerName +"" + playerArmorHealth + " Armor Durumu" + playerArmorCondition);
+                System.out.println(playerName +""+ playerHealth + ""+playerName +"" + playerArmorHealth + " Armor Condition " + playerArmorCondition);
                 Thread.sleep(2000);
             }
             if (critChanceB>sideQuestBossCritChance){
-                System.out.println("Cakeking Hasar vurdu ! " + sideQuestBossDamage + " DMG");
+                System.out.println("Cakeking made a strike ! " + sideQuestBossDamage + " DMG");
                 Thread.sleep(2000);
                 if (playerArmorHealth<=0 || playerArmorCondition<=0){
                     playerHealth -= sideQuestBossDamage;
@@ -77,36 +77,36 @@ public class Game {
                     playerArmorCondition -= 1;
                     playerArmorHealth -= sideQuestBossDamage;
                 }
-                System.out.println(playerName +""+ playerHealth + ""+playerName +"" + playerArmorHealth + " Armor Durumu" + playerArmorCondition);
+                System.out.println(playerName +""+ playerHealth + ""+playerName +"" + playerArmorHealth + " Armor Condition " + playerArmorCondition);
                 Thread.sleep(2000);
             }
-            System.out.println( playerName+ " Saldıraya Geçiyor");
+            System.out.println( playerName+ " Moves for an attack");
             Thread.sleep(2000);
              int critChancePlayer = random.nextInt(10);
             if (critChancePlayer<=playerCritChance){
-                System.out.println(playerName+" Crit Hasar Vurdu !!! " + (playerCrit*playerWeaponDamage) +" DMG");
+                System.out.println(playerName+" Made a crit strike !!! " + (playerCrit*playerWeaponDamage) +" DMG");
                 Thread.sleep(2000);
                 sideQuestBossHealth -= playerCrit*playerWeaponDamage;
-                System.out.println("Boss'un canı " + sideQuestBossHealth);
+                System.out.println("Boss HP " + sideQuestBossHealth);
                 Thread.sleep(2000);
             }
             if (critChancePlayer>= playerCritChance){
                 sideQuestBossHealth -= playerWeaponDamage;
-                System.out.println(playerName+" Hasar Vurdu " + playerWeaponDamage + "DMG");
+                System.out.println(playerName+" made a strike " + playerWeaponDamage + "DMG");
                 Thread.sleep(2000);
-                System.out.println("Boss'un canı " + sideQuestBossHealth);
+                System.out.println("Boss HP " + sideQuestBossHealth);
                 Thread.sleep(2000);
             }
 
             if (playerHealth<=0){
                 Thread.sleep(2000);
-                System.out.println(" CakeKing son darbeyi vurdu Oyuncu SideBoss a karşı kaybetti ");
+                System.out.println(" CakeKing made his last strike and you have lost ! ");
                 break;
             } else if (sideQuestBossHealth<=0) {
-                System.out.println("CakeKing yere düşüyor oyuncu kazandı !!!! ödülünüz ---> " + sideQuestPrize);
+                System.out.println("CakeKing falls !!!! Your Reward ---> " + sideQuestPrize);
                 Thread.sleep(2000);
                 playerBalance += sideQuestPrize;
-                System.out.println("Yeni bakiye "+ playerBalance);
+                System.out.println("New Balance: "+ playerBalance);
                 Thread.sleep(2000);
                 break;
             }
@@ -122,21 +122,21 @@ public class Game {
 
 
     public void Upgrade() throws InterruptedException {
-        System.out.println("İyi günler savaşçı Weapon ve Armor Upgrade etmek için en iyi yerdesin");
+        System.out.println("Hello There welcome to the TEK market");
         Thread.sleep(2000);
-        System.out.println("Armor upgrade için 'armor' Weapon upgrade için 'weapon' Armor Repair için 'repair' Çıkış için 'Çıkış' yazınız");
+        System.out.println("for Armor upgrade 'armor' Weapon upgrade 'weapon' Armor Repair 'repair' for exit için 'Çıkış' (Type your choice)");
         String upgradeDecision = scanner.nextLine();
         while (!upgradeDecision.equalsIgnoreCase("çıkış")){
             if (upgradeDecision.equalsIgnoreCase("armor")){
                 Thread.sleep(2000);
-                String armorPrices = "Mağazamızda Armor Upgrade Fiyatları Aşağıda Gösterildiği Gibidir! \n"
-                        + "Lvl2 Ateşten geçen armor -----> 50 Gold ve Armor Canı 80 \n"
-                        + "Lvl3 Rüzgarın nefesi armor -----> 150 gold ve Armor Canı 120 \n "
-                        + "Lvl4 TEK armor ----> 400 gold ve Armor Canı 160 \n"
-                        + "Lvl5 Kaiser İmpact armor ------> 2500 gold vs Armor canı 200 \n";
+                String armorPrices = "Here is Armor prices  \n"
+                        + "Lvl2 Fire armor -----> 50 Gold ve Armor HP 80 \n"
+                        + "Lvl3 Dragon Breath armor -----> 150 gold ve Armor HP 120 \n "
+                        + "Lvl4 TEK armor ----> 400 gold ve Armor HP 160 \n"
+                        + "Lvl5 Kaiser İmpact armor ------> 2500 gold vs Armor HP 200 \n";
                 System.out.println(armorPrices);
                 Thread.sleep(1000);
-                System.out.println("Anlık Armorunuz " + playerArmorHealth + " Armor Lvlınız " + playerArmorLvl + " Yükseltmek ister misiniz ? (Y/N)");
+                System.out.println("Current Armor HP " + playerArmorHealth + " Armor Lvl " + playerArmorLvl + " Wanna Upgrade ? (Y/N)");
                 String armorUpgradeDecision = scanner.next();
                 if (armorUpgradeDecision.equalsIgnoreCase("y")){
                     if (playerArmorLvl == 1 && playerBalance>=playerArmorUpgradePrice2 ){
@@ -144,50 +144,50 @@ public class Game {
                         playerArmorLvl += 1;
                         playerArmorHealth = playerArmorHealtLvl2;
                         Thread.sleep(2000);
-                        System.out.println("Armorunuz başarı ile yükseltilmiştir yeni Lvl2 armorunuzun 80 canı vardır");
+                        System.out.println("Armor successfully upgraded Lvl2 Has armor 80 HP ");
                         Thread.sleep(2000);
-                        System.out.println("Yeni Balance = " + playerBalance + " Gold");
+                        System.out.println("New Balance = " + playerBalance + " Gold");
                     } else if (playerArmorLvl == 2 && playerBalance>=playerArmorUpgradePrice3) {
                         playerBalance -= playerArmorUpgradePrice3;
                         playerArmorLvl += 1;
                         playerArmorHealth = playerArmorHealtLvl3;
                         Thread.sleep(2000);
-                        System.out.println("Armorunuz başarı ile yükseltilmiştir yeni Lvl3 armorunuzun 120 canı vardır");
+                        System.out.println("Armor successfully upgraded Lvl3 Has armor 120 HP");
                         Thread.sleep(2000);
-                        System.out.println("Yeni Balance = " + playerBalance + " Gold");
+                        System.out.println("New Balance = " + playerBalance + " Gold");
                     } else if (playerArmorLvl == 3 && playerBalance>=playerArmorUpgradePrice4) {
                         playerBalance -= playerArmorUpgradePrice4;
                         playerArmorLvl += 1;
                         playerArmorHealth = playerArmorHealtLvl4;
                         Thread.sleep(2000);
-                        System.out.println("Armorunuz başarı ile yükseltilmiştir yeni Lvl4 armorunuzun 160 canı vardır");
+                        System.out.println("Armor successfully upgraded Lvl4 Has armor 160 HP");
                         Thread.sleep(2000);
-                        System.out.println("Yeni Balance = " + playerBalance + " Gold");
+                        System.out.println("New Balance = " + playerBalance + " Gold");
                     } else if (playerArmorLvl == 4 && playerBalance >= playerArmorUpgradePrice5) {
                         playerBalance -= playerArmorUpgradePrice5;
                         playerArmorLvl += 1;
                         playerArmorHealth = playerArmorHealtLvl5;
                         Thread.sleep(2000);
-                        System.out.println("Armorunuz başarı ile yükseltilmiştir yeni Lvl4 armorunuzun 160 canı vardır");
+                        System.out.println("Armor successfully upgraded Lvl5 Has armor 200 HP");
                         Thread.sleep(2000);
-                        System.out.println("Yeni Balance = " + playerBalance + " Gold");
+                        System.out.println("New Balance = " + playerBalance + " Gold");
                     }else {
                         Thread.sleep(2000);
-                        System.out.println("Üzgünüz Görünüşe Göre Bakiyeniz yetersiz");
+                        System.out.println("Not enough balance for that ");
                     }
                 }
 
             }
             if (upgradeDecision.equalsIgnoreCase("weapon")){
                 Thread.sleep(2000);
-                String weaponPrices = "Mağazamızda Weapon Upgrade Fiyatları Aşağıda Gösterildiği Gibidir!\n"
-                        + "Lvl2 Ateşten geçen weapon -----> 50 Gold ve Weapon Hasarı 30\n "
-                        + "Lvl3 Rüzgarın nefesi weapon -----> 150 gold ve Weapon Hasarı 60\n"
-                        + "Lvl4 TEK weapon ----> 400 gold ve Weapon Hasarı\n "
-                        + "Lvl5 Kaiser weapon armor ------> 2500 gold vs Weapon Hasarı\n";
+                String weaponPrices = "Here is Armor prices\n"
+                        + "Lvl2 Fire weapon -----> 50 Gold ve Weapon DMG 30\n "
+                        + "Lvl3 Dragon Breath weapon -----> 150 gold ve Weapon DMG 60\n"
+                        + "Lvl4 TEK weapon ----> 400 gold ve Weapon DMG 120\n "
+                        + "Lvl5 Kaiser weapon armor ------> 2500 gold vs Weapon DMG 200\n";
                 System.out.println(weaponPrices);
                 Thread.sleep(2000);
-                System.out.println("Anlık Weapon Lvlınız" + playerWeaponLvl + " Anlık Weapon Hasarınız " + playerWeaponDamage + "Yükseltmek ister misiniz ? (Y/N)");
+                System.out.println("Current weapon lvl " + playerWeaponLvl + " current weapon dmg " + playerWeaponDamage + "Wanna Upgrade ? (Y/N)");
                 String weaponUpgradeDecision = scanner.next();
                 if (weaponUpgradeDecision.equalsIgnoreCase("y")){
                     if (playerWeaponLvl == 1 && playerBalance >= playerWeaponUpgradePrice2){
@@ -195,55 +195,55 @@ public class Game {
                         playerBalance -= playerWeaponUpgradePrice2;
                         playerWeaponDamage = playerWeaponDamageLvl2;
                         Thread.sleep(2000);
-                        System.out.println("Weapon Başarı ile yükseltilmiştir yeni Lvl " + playerWeaponLvl + " yeni Weapon hasarı " + playerWeaponDamage);
+                        System.out.println("weapon successfully upgraded lvl " + playerWeaponLvl + " new weapon damage " + playerWeaponDamage);
                         Thread.sleep(2000);
-                        System.out.println("Yeni Balance = " + playerBalance + " Gold");
+                        System.out.println("New Balance = " + playerBalance + " Gold");
                     } else if (playerWeaponLvl == 2 && playerBalance >= playerWeaponUpgradePrice3) {
                         playerWeaponLvl += 1;
                         playerBalance -= playerWeaponUpgradePrice3;
                         playerWeaponDamage = playerWeaponDamageLvl3;
                         Thread.sleep(2000);
-                        System.out.println("Weapon Başarı ile yükseltilmiştir yeni Lvl " + playerWeaponLvl + " yeni Weapon hasarı " + playerWeaponDamage);
+                        System.out.println("weapon successfully upgraded lvl " + playerWeaponLvl + " new Weapon damage " + playerWeaponDamage);
                         Thread.sleep(2000);
-                        System.out.println("Yeni Balance = " + playerBalance + " Gold");
+                        System.out.println("New Balance = " + playerBalance + " Gold");
                     } else if (playerWeaponLvl == 3 && playerBalance>= playerWeaponUpgradePrice4) {
                         playerWeaponLvl += 1;
                         playerBalance -= playerWeaponUpgradePrice4;
                         playerWeaponDamage = playerWeaponDamageLvl4;
-                        System.out.println("Weapon Başarı ile yükseltilmiştir yeni Lvl " + playerWeaponLvl + " yeni Weapon hasarı " + playerWeaponDamage);
+                        System.out.println("weapon successfully upgraded lvl " + playerWeaponLvl + " new Weapon damage " + playerWeaponDamage);
                         Thread.sleep(2000);
-                        System.out.println("Yeni Balance = " + playerBalance + " Gold");
+                        System.out.println("New Balance = " + playerBalance + " Gold");
                         Thread.sleep(2000);
 
                     } else if (playerWeaponLvl == 4 && playerBalance>= playerWeaponUpgradePrice5) {
                         playerWeaponLvl += 1;
                         playerBalance -= playerWeaponUpgradePrice5;
                         playerWeaponDamage = playerWeaponDamageLvl5;
-                        System.out.println("Weapon Başarı ile yükseltilmiştir yeni Lvl " + playerWeaponLvl + " yeni Weapon hasarı " + playerWeaponDamage);
+                        System.out.println("weapon successfully upgraded lvl " + playerWeaponLvl + " new Weapon damage " + playerWeaponDamage);
                         Thread.sleep(2000);
-                        System.out.println("Yeni Balance = " + playerBalance + " Gold");
+                        System.out.println("New Balance = " + playerBalance + " Gold");
                         Thread.sleep(2000);
                     }else {
                         Thread.sleep(2000);
-                        System.out.println("Üzgünüz Görünüşe Göre Bakiyeniz yetersiz");
+                        System.out.println("Not enough balance for that");
                     }
                 }
 
             }
             if (upgradeDecision.equalsIgnoreCase("repair")){
-                System.out.println("Repair yapılıyor...");
+                System.out.println("Repairing...");
                 Thread.sleep(2000);
                 if (playerBalance>= playerArmorRepairPrice){
                     playerArmorCondition = 20;
                     playerBalance -= playerArmorRepairPrice;
-                    System.out.println("Armor başarı ile yenilendi!");
-                    System.out.println("Yeni Balance = " + playerBalance + " Gold");
+                    System.out.println("Completed!");
+                    System.out.println("New Balance = " + playerBalance + " Gold");
                 } else if (playerBalance<= playerArmorRepairPrice) {
-                    System.out.println("Üzgünüm işlem gerçekleştirelemedi yetersiz bakiye");
+                    System.out.println("Not enough balance for that");
                 }
             }
             Thread.sleep(1000);
-            System.out.println("Armor upgrade için 'armor' Weapon upgrade için 'weapon' Armor Repair için 'repair' Çıkış için 'Çıkış' yazınız");
+            System.out.println("for Armor upgrade 'armor' Weapon upgrade 'weapon' Armor Repair 'repair' for exit için 'Çıkış' (Type your choice)");
             upgradeDecision = scanner.nextLine();
 
         }
@@ -266,11 +266,11 @@ public class Game {
 if (playerBalance>=bossEntryPrice) {
     playerBalance-=bossEntryPrice;
     while (bossHealth >= 0 || playerHealth >= 0) {
-        System.out.println(bossName +" Saldırısını yapıyor");
+        System.out.println(bossName +" making his move for a strike");
         Thread.sleep(1000);
         int critChanceB = random.nextInt(10);
         if (critChanceB <= bossCritChance) {
-            System.out.println(bossName +" Crit Hasar vurdu !!!!!!! " + (bossCrit * bossDamage) + "DMG");
+            System.out.println(bossName +" strikes a crit hit !!!!!!! " + (bossCrit * bossDamage) + "DMG");
             Thread.sleep(2000);
             if (playerArmorHealth <= 0 || playerArmorCondition <= 0) {
                 playerHealth -= bossCrit * bossDamage;
@@ -278,11 +278,11 @@ if (playerBalance>=bossEntryPrice) {
                 playerArmorCondition -= 2;
                 playerArmorHealth -= bossCrit * bossDamage;
             }
-            System.out.println(playerName+" Canı " + playerHealth +" HP "+ playerName+"  Armoru " + playerArmorHealth + " HP Armor Durumu" + playerArmorCondition);
+            System.out.println(playerName+" HP: " + playerHealth +" HP: "+ playerName+"  Armor: " + playerArmorHealth + " HP Armor Condition" + playerArmorCondition);
             Thread.sleep(2000);
         }
         if (critChanceB > bossCritChance) {
-            System.out.println(bossName+" Hasar vurdu ! " + bossDamage + " DMG");
+            System.out.println(bossName+" Strikes ! " + bossDamage + " DMG");
             Thread.sleep(2000);
             if (playerArmorHealth <= 0 || playerArmorCondition <= 0) {
                 playerHealth -= bossDamage;
@@ -290,38 +290,38 @@ if (playerBalance>=bossEntryPrice) {
                 playerArmorCondition -= 2;
                 playerArmorHealth -= bossDamage;
             }
-            System.out.println(playerName+" Canı " + playerHealth + " HP "+playerName+" Armoru " + playerArmorHealth + " HP Armor Durumu" + playerArmorCondition);
+            System.out.println(playerName+" HP " + playerHealth + " HP "+playerName+" Armor " + playerArmorHealth + " HP Armor Condition" + playerArmorCondition);
             Thread.sleep(2000);
         }
-        System.out.println(playerName+" Saldıraya Geçiyor");
+        System.out.println(playerName+" making his move for a strike");
         Thread.sleep(2000);
         int critChancePlayer = random.nextInt(10);
         if (critChancePlayer <= playerCritChance) {
-            System.out.println(playerName+" Crit Hasar Vurdu !!! " + (playerCrit * playerWeaponDamage) + " DMG");
+            System.out.println(playerName+" lands a critical strike !!! " + (playerCrit * playerWeaponDamage) + " DMG");
             Thread.sleep(2000);
             bossHealth -= playerCrit * playerWeaponDamage;
-            System.out.println(bossName+" canı " + bossHealth);
+            System.out.println(bossName+" HP " + bossHealth);
             Thread.sleep(2000);
         }
         if (critChancePlayer >= playerCritChance) {
             bossHealth -= playerWeaponDamage;
-            System.out.println(playerName+" Hasar Vurdu " + playerWeaponDamage + "DMG");
+            System.out.println(playerName+" Strikes " + playerWeaponDamage + "DMG");
             Thread.sleep(2000);
-            System.out.println(bossName+" canı " + bossHealth);
+            System.out.println(bossName+" HP " + bossHealth);
             Thread.sleep(2000);
         }
 
         if (playerHealth <= 0) {
             Thread.sleep(2000);
-            System.out.println(bossName+" son darbeyi vurdu Oyuncu SideBoss a karşı kaybetti ");
+            System.out.println(bossName+" Laughed and hit his final hit YOU HAVE LOST ! ");
             break;
         } else if (bossHealth <= 0) {
-            System.out.println(bossName+" yere düşüyor oyuncu kazandı !!!! ödülünüz ---> " + sideQuestPrize);
+            System.out.println(bossName+" FALLS !!!! Your Reward ---> " + sideQuestPrize);
             Thread.sleep(2000);
             bossLvl += bossLvlUpgrade ;
             System.out.println(bossLvl);
             playerBalance += bossPrize;
-            System.out.println("Yeni bakiye " + playerBalance);
+            System.out.println("New Balance " + playerBalance);
             Thread.sleep(2000);
             break;
         }
@@ -329,7 +329,7 @@ if (playerBalance>=bossEntryPrice) {
 
     }
 }else{
-    System.out.println("Bu boss a girmek için yeterli bakiyeye sahip değilsin gereken bakiye ---> "+bossEntryPrice+" Gold");
+    System.out.println("You cant afford entry price for boss ---> "+bossEntryPrice+" Gold");
 }
 
     }
@@ -343,26 +343,26 @@ if (playerBalance>=bossEntryPrice) {
             System.out.println("");
 
             String guideBook = ">------------------------------------------------------------<\n"+
-                    "Merhaba " + playerName + " ihtiyacın olan tüm bilgiler bu metinde \n" +
-                    "Oyunda sidequestler para kazanman için yapılmış yan görevlerdir ve her biri (50 Gold) verir\n" +
-                    "5 adet boss ve her birinin farklı özellikleri vardır 5'ini de yen ve oyunu kazan\n" +
-                    "Market weapon ve armor yükseltmeleri için kullanılır ayrıca armor durumunu da yenileyebilirsin\n" +
-                    "Bosslara giriş ücretleri şu şekildedir\n " +
+                    "Hi! " + playerName + " We have all the information you need ! \n" +
+                    "Sidequest made for some extra cash feel free to play as long as you want (50 Gold) reward \n" +
+                    "There are 5 different bosses and each of these bosses have their unique abilities if you somehow manage to beat all of them game will be over!\n" +
+                    "Use market for Armor,Weapon upgrade and armor repair\n" +
+                    "Boss entry Prices\n " +
                     ">------------------------------------------------------------<\n"+
-                    "1---> 100 Gold\n" +
-                    "2---> 300 Gold\n" +
-                    "3---> 600 Gold\n" +
-                    "4---> 1200 Gold\n" +
-                    "5---> 2200 Gold\n" +
+                    "Fofana ---> 100 Gold\n" +
+                    "Dante ---> 300 Gold\n" +
+                    "Vasto Lord ---> 600 Gold\n" +
+                    "Espada ---> 1200 Gold\n" +
+                    "Kaiser ---> 2200 Gold\n" +
                     ">------------------------------------------------------------<\n"+
-                    "OYUN İÇİ KOMUTLAR AŞAĞIDAKİ GİBİDİR\n" +
-                    "Boss a girmek için 'BOSS' yazılmalı\n" +
-                    "Markete girmek için 'Market' yazılmalı\n" +
-                    "SideQuest için 'SideQuest' yazılmalı\n" +
-                    "Rehbere girmek için 'Rehber' yazılmalı\n" +
-                    "Oyunu kapatmak için 'Çıkış' Yazılmalı\n" +
+                    "In game commands \n" +
+                    "For boss Write down 'Boss' \n" +
+                    "For market Write down 'Market'\n" +
+                    "For sidequest Write down 'SideQuest' \n" +
+                    "For Guidebook Write down 'Rehber'\n" +
+                    "For Exit Write down 'Çıkış' \n" +
                     ">------------------------------------------------------------<\n"+
-                    "HER ŞEY ANLAŞILDIĞINA GÖRE REHBERDEN ÇIKMAK İÇİN (KAPAT) YAZABİLİRSİN ---->";
+                    "Everything settled now please write down (Kapat) and game will start ---->";
             System.out.print(guideBook);
             guideBookExit = scanner.next();
         }while (!guideBookExit.equalsIgnoreCase("kapat"));
